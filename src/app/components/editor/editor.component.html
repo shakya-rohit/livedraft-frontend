@@ -1,0 +1,20 @@
+<div class="user-info">
+  <strong>You are:</strong> {{ username }}
+</div>
+
+<div class="user-presence">
+  <strong>Active Users ({{ activeUsers.length }})</strong>
+  <ul>
+    <li *ngFor="let user of activeUsers">{{ user }}</li>
+  </ul>
+</div>
+
+<div class="typing-indicator" *ngIf="currentTypingUser">
+  {{ currentTypingUser }} is typing...
+</div>
+
+<ckeditor
+  [editor]="Editor"
+  [(ngModel)]="content"
+  (change)="onChange($event)">
+</ckeditor>
